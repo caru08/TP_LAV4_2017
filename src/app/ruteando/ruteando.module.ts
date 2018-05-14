@@ -29,7 +29,7 @@ const MiRuteo = [
 {path: 'Login' , component: LoginComponent},
 {path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
-{path: 'Registro' , component: RegistroComponent},
+// {path: 'Registro' , component: RegistroComponent},
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
 { path: 'Juegos' ,

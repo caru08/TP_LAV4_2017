@@ -5,9 +5,12 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatIconModule, MatFormFieldModule, MatInputModule,
-  MatDialogModule
+  MatDialogModule,  MatButtonModule, MatButtonToggleModule, MatSnackBarModule
 } from '@angular/material';
 
+//PIRMER NG
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
 
 import { AgmCoreModule } from '@agm/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -44,12 +47,22 @@ import { AnagramaComponent } from './componentes/anagrama/anagrama.component';
 import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-google.component';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 
-import { RuteandoModule } from './ruteando/ruteando.module';
+//COMMON COMPONENTS
+import { MessageSnackBarComponent } from './componentes/common-components/message-snackbar.component';
+import { LoaderCircleComponent } from './componentes/common-components/loader-circle.component';
 
+//ROOTERS
+import { RuteandoModule } from './ruteando/ruteando.module';
+import { RouterHandler } from './ruteando/router-handler';
+
+//SERVICIOS
 import { MiHttpService } from './servicios/mi-http.service';
 import { JugadoresService } from './servicios/jugadores.service';
 import { JuegoServiceService } from './servicios/juego-service.service';
+import { LoginService } from './servicios/login.service';
+import { ErrorsHandler } from './servicios/error-service-handler.service';
 
+//pipes / tools
 import { SexoPipe } from './pipes/sexo.pipe';
 
 @NgModule({
@@ -75,6 +88,8 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
+    MessageSnackBarComponent,
+    LoaderCircleComponent,
     SexoPipe
   ],
   imports: [
@@ -83,23 +98,44 @@ import { SexoPipe } from './pipes/sexo.pipe';
     FormsModule,
     MatIconModule,
     MatFormFieldModule,
-    MatInputModule,    
+    MatInputModule,
     RuteandoModule,
     HttpModule,
     MatDialogModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatSnackBarModule,
+
+    //ng prima
+    InputTextModule,
+    ButtonModule,
+    //firebase
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })   
+    })
   ],
   exports: [
     MatIconModule
   ],
-  providers: [ JuegoServiceService, MiHttpService, ArchivosJugadoresService, JugadoresService],
+  providers: [
+    JuegoServiceService,
+    MiHttpService,
+    ArchivosJugadoresService,
+    JugadoresService,
+    RouterHandler,
+    LoginService,
+    ErrorsHandler,
+    MessageSnackBarComponent
+  ],
   bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  entryComponents:[
+    LoginComponent,
+    RegistroComponent
+  ]
 
 })
 export class AppModule { }

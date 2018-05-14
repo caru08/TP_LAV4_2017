@@ -1,6 +1,58 @@
-<div class="container">
+<div class="flex-v flex-h-center">
+  <loader-circle [loading]="loading"></loader-circle>
+  <form #loginForm="ngForm">
+    <h4 class="first-item">Ingresa al sitio!</h4>
+    <div class="ui-g ui-fluid first-item">
+      <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup flex-h">
+          <span class="ui-inputgroup-addon flex-20"><i class="fa fa-user"></i></span>
+          <input class="flex-80 small-margin-left" type="text" pInputText placeholder="Email"
+                 #email="ngModel" name="email" [(ngModel)]="user.email" required>
+        </div>
+      </div>
 
+      <div class="ui-g-12 ui-md-4 first-item">
+        <div class="ui-inputgroup flex-h">
+          <span class="ui-inputgroup-addon flex-20"><i class="fa fa-key"></i></span>
+          <input class="flex-80 small-margin-left" type="password" pInputText placeholder="Contraseña"
+                 #pass="ngModel" name="pass" [(ngModel)]="user.pass" required>
+        </div>
+      </div>
 
+      <div class="flex-h first-item">
+        <button class="expand-w" mat-raised-button color="accent" [disabled]="!loginForm.valid"
+                (click)="loginUserPass()">
+          Loguearse!
+        </button>
+      </div>
+
+      <div class="flex-h first-item">
+        <button class="expand-w login-facebook-button" mat-raised-button color="accent" [disabled]=""
+                (click)="loginWithFacebook()">
+          <div class="flex-h">
+            <span class="ui-inputgroup-addon flex-20"><i class="fa fa-facebook"></i></span>
+            <div class="small-margin-left">Loguéate con Facebook!</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flex-h first-item">
+        <button class="expand-w login-gmail-button" mat-raised-button color="accent" [disabled]=""
+                (click)="loginWithGmail()">
+          <div class="flex-h">
+            <span class="ui-inputgroup-addon flex-20"><i class="fa fa-google"></i></span>
+            <div class="">Loguéate con Gmail!</div>
+          </div>
+        </button>
+      </div>
+
+      <div class="flex-h first-item expand-center">
+        <p class="registrate-label" (click)="registrarseClick()">Registrate!</p>
+      </div>
+
+    </div>
+
+  </form>
 
   <!--
   <form>
