@@ -27,10 +27,10 @@
       </div>
     </div>
     <div class="flex-50 expand-right">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" *ngIf="!isLogged">
         <li class="title-detail">
-          <a routerLink="/Registro" class="title-detail">
-          <span class="glyphicon glyphicon-user"></span>
+          <a class="title-detail" (click)="registrarseClick()">
+            <span class="glyphicon glyphicon-user"></span>
             Registrarse
           </a>
         </li>
@@ -40,6 +40,17 @@
             Ingresar
           </a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav" *ngIf="isLogged">
+        <li class="title-detail">
+          <a class="title-detail" [matMenuTriggerFor]="menu">
+            <span class="glyphicon glyphicon-user"></span>
+            {{userLogged}}
+          </a>
+        </li>
+        <mat-menu #menu="matMenu" yPosition="below">
+          <a class="navbar-brand title-detail menu-toggle-item" (click)="logoutClick()">Desloguearse</a>
+        </mat-menu>
       </ul>
     </div>
   </div>

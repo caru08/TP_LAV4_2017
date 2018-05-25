@@ -7,3 +7,51 @@
 .mat-icon{
   color: $detail-color-one;
 }
+
+.mat-raised-button.mat-primary[disabled],
+.mat-raised-button.mat-accent[disabled], .mat-raised-button.mat-warn[disabled],
+.mat-raised-button[disabled][disabled], .mat-fab.mat-primary[disabled],
+.mat-fab.mat-accent[disabled], .mat-fab.mat-warn[disabled], .mat-fab[disabled][disabled],
+.mat-mini-fab.mat-primary[disabled], .mat-mini-fab.mat-accent[disabled],
+.mat-mini-fab.mat-warn[disabled], .mat-mini-fab[disabled][disabled]{
+  color: #515151 !important;
+  background-color: #e7d194 !important;
+}
+
+snack-bar-container.error-snackbar{
+  display: flex;
+  justify-content: center;
+  background: $detail-warn-color;
+  color:$text-color;
+  font-weight: bold;
+}
+
+snack-bar-container.success-snackbar{
+  display: flex;
+  justify-content: center;
+  background: $detail-sucess-color;
+  color:$text-color;
+  font-weight: bold;
+}
+
+snack-bar-container.info-snackbar{
+  display: flex;
+  justify-content: center;
+  background: $detail-color-two;
+  color:$text-color;
+  font-weight: bold;
+}
+
+.cdk-overlay-pane{
+  top: 40px !important;
+}
+
+a:hover{
+  color: $detail-color-one;
+  cursor: pointer;
+  background-color: $background-color-five;
+}
+
+.mat-menu-content{
+  padding-top: 0px !important;
+}
