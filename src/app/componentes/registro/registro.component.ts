@@ -17,7 +17,7 @@ export class RegistroComponent implements OnInit {
   ngOnInit() {
   }
 
-  noaceptoClick(){
+  noAceptoClick(){
     this.dialogRef.close();
   }
 

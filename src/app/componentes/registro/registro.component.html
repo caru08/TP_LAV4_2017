@@ -12,14 +12,13 @@
   </div>
   <div class="flex-h expand-center">
     <button class="flex-10" mat-raised-button color="primary" (click)="aceptaCondiciones()">Acepto</button>
-    <button class="flex-10" mat-raised-button color="warn" (click)="noaceptoClick()">No Acepto</button>
+    <button class="flex-10" mat-raised-button color="warn" (click)="noAceptoClick()">No Acepto</button>
   </div>
 </div>
 
-<div id="id01" class="modal" *ngIf="acepto">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-  <form class="modal-content animate">
-    <div class="container">
+<div *ngIf="acepto">
+  <form>
+    <div>
       <label>
         <b>Email</b>
       </label>

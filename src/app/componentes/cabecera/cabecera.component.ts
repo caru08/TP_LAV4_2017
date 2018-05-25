@@ -35,7 +35,6 @@ export class CabeceraComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result == 'registrarse'){
-        this.messageSnack.showInfoMessage("Redireccionando a pagina de registro");
         this.registrarseClick();
       }else{
       }

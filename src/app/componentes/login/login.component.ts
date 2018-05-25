@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
-
 import { LoginService } from '../../servicios/login.service';
 import { MessageSnackBarComponent } from '../common-components/message-snackbar.component';
 
@@ -28,12 +27,11 @@ export class LoginComponent implements OnInit {
   loginUserPass(){
     this.loading = true;
     this.loginService.signInWithEmailAndPass(this.user.email, this.user.pass)
-      .finally((response)=>{
-        this.loading = false;
-      })
       .then((res) => {
         if(res){
           this.loginComplete();
+        }else{
+          this.loading = false;
         }
       })
       .catch((err) =>{
@@ -45,11 +43,12 @@ export class LoginComponent implements OnInit {
   loginWithFacebook(){
     this.loading = true;
     this.loginService.singInWithFacebook()
-      .finally((response)=>{
-        this.loading = false;
-      })
       .then((res) => {
-        this.loginComplete();
+        if(res){
+          this.loginComplete();
+        }else{
+          this.loading = false;
+        }
       })
       .catch((err) =>{
         console.log('error: ' + err);
@@ -60,12 +59,11 @@ export class LoginComponent implements OnInit {
   loginWithGmail(){
     this.loading = true;
     this.loginService.signInWithGoogleMail()
-      .finally((response)=>{
-        this.loading = false;
-      })
       .then((res) => {
         if(res){
           this.loginComplete();
+        }else{
+          this.loading = false;
         }
       })
       .catch((err) =>{
