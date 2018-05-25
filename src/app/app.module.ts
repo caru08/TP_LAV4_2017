@@ -5,7 +5,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MatIconModule, MatFormFieldModule, MatInputModule,
-  MatDialogModule,  MatButtonModule, MatButtonToggleModule, MatSnackBarModule
+  MatDialogModule,  MatButtonModule, MatButtonToggleModule, MatSnackBarModule, MatMenuModule
 } from '@angular/material';
 
 //PIRMER NG
@@ -105,6 +105,7 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MatButtonModule,
     MatButtonToggleModule,
     MatSnackBarModule,
+    MatMenuModule,
 
     //ng prima
     InputTextModule,

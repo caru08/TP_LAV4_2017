@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
   loginUserPass(){
     this.loading = true;
     this.loginService.signInWithEmailAndPass(this.user.email, this.user.pass)
+      .finally((response)=>{
+        this.loading = false;
+      })
       .then((res) => {
         if(res){
           this.loginComplete();
@@ -42,6 +45,9 @@ export class LoginComponent implements OnInit {
   loginWithFacebook(){
     this.loading = true;
     this.loginService.singInWithFacebook()
+      .finally((response)=>{
+        this.loading = false;
+      })
       .then((res) => {
         this.loginComplete();
       })
@@ -54,6 +60,9 @@ export class LoginComponent implements OnInit {
   loginWithGmail(){
     this.loading = true;
     this.loginService.signInWithGoogleMail()
+      .finally((response)=>{
+        this.loading = false;
+      })
       .then((res) => {
         if(res){
           this.loginComplete();
@@ -61,7 +70,6 @@ export class LoginComponent implements OnInit {
       })
       .catch((err) =>{
         console.log('error: ' + err);
-        this.loading = false;
       });
   }
 
@@ -73,17 +81,6 @@ export class LoginComponent implements OnInit {
     this.loading = false;
     this.dialogRef.close();
   }
-
-
-
-
-
-  // Entrar() {
-  //   if (this.usuario === 'admin' && this.clave === 'admin') {
-  //     this.router.navigate(['/Principal']);
-  //   }
-  // }
-
 
   MoverBarraDeProgreso() {
     /*this.logeando=false;

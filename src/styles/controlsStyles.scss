@@ -41,3 +41,17 @@ snack-bar-container.info-snackbar{
   color:$text-color;
   font-weight: bold;
 }
+
+.cdk-overlay-pane{
+  top: 40px !important;
+}
+
+a:hover{
+  color: $detail-color-one;
+  cursor: pointer;
+  background-color: $background-color-five;
+}
+
+.mat-menu-content{
+  padding-top: 0px !important;
+}

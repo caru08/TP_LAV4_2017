@@ -21,28 +21,31 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
 
+import { RouterHandler } from './router-handler';
+
+
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-{path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
-{path: 'Login' , component: LoginComponent},
-{path: 'Mapa' , component: MapaDeGoogleComponent},
-{path: 'QuienSoy' , component: QuienSoyComponent},
+  {path: 'Jugadores' , component: JugadoresListadoComponent, canActivate: [RouterHandler] },
+  {path: '' , component: PrincipalComponent},
+  {path: 'Login' , component: LoginComponent},
+  {path: 'Mapa' , component: MapaDeGoogleComponent, canActivate: [RouterHandler]},
+  {path: 'QuienSoy' , component: QuienSoyComponent, canActivate: [RouterHandler]},
 // {path: 'Registro' , component: RegistroComponent},
-{path: 'Principal' , component: PrincipalComponent},
-{path: 'Listado' , component: ListadoComponent},
-{ path: 'Juegos' ,
-component: JuegosComponent ,
-children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-      {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
-},
-{path: '**' , component: ErrorComponent},
-{path: 'error' , component: ErrorComponent}];
+  {path: 'Principal' , component: PrincipalComponent, canActivate: [RouterHandler]},
+  {path: 'Listado' , component: ListadoComponent, canActivate: [RouterHandler]},
+  { path: 'Juegos' , canActivate: [RouterHandler], canActivateChild: [RouterHandler],
+    component: JuegosComponent ,
+    children:
+      [{path: '' , component: MenuCardComponent},
+        {path: 'Adivina' , component: AdivinaElNumeroComponent},
+        {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
+        {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
+        {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
+  },
+  {path: '**' , component: ErrorComponent},
+  {path: 'error' , component: ErrorComponent}];
 
 @NgModule({
   imports: [

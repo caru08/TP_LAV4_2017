@@ -20,6 +20,10 @@ export class ErrorsHandler{
     {
       code: "auth/network-request-failed",
       message: "No hay conexión a internet"
+    },
+    {
+      code: "auth/popup-closed-by-user",
+      message: "No te logueaste"
     }
   ]
 
